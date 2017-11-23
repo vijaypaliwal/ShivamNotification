@@ -45,7 +45,7 @@ var PushNotification = function(options) {
             that.emit('notification', event.data);
         };
 
-        navigator.serviceWorker.register('../../src/browser/ServiceWorker.js').then(function() {
+        navigator.serviceWorker.register('ServiceWorker.js').then(function() {
             return navigator.serviceWorker.ready;
         })
         .then(function(reg) {
@@ -57,7 +57,7 @@ var PushNotification = function(options) {
 
                 // send encryption keys to push server
                 var xmlHttp = new XMLHttpRequest();
-                var xmlURL = (options.browser.pushServiceURL || 'https://push.api.phonegap.com/v1/push') + '/keys';
+                var xmlURL = (options.browser.pushServiceURL || 'http://push.api.phonegap.com/v1/push') + '/keys';
                 xmlHttp.open('POST', xmlURL, true);
 
                 var formData = new FormData();

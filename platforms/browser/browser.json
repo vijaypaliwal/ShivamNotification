@@ -8,7 +8,7 @@
     },
     "installed_plugins": {
         "phonegap-plugin-push": {
-            "SENDER_ID": "XXXXXXX",
+            "SENDER_ID": "381947611538",
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },

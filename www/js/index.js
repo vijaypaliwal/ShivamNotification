@@ -43,7 +43,7 @@ var app = {
             "android": {
                 "senderID": "381947611538"
             },
-            "browser": { pushServiceURL: 'http://push.api.phonegap.com/v1/push'},
+            "browser": {},
             "ios": {
                 "sound": true,
                 "vibration": true,
@@ -59,6 +59,7 @@ var app = {
             var oldRegId = localStorage.getItem('registrationId');
             if (oldRegId !== data.registrationId) {
                 // Save new registration ID
+                 
                 localStorage.setItem('registrationId', data.registrationId);
                 // Post registrationId to your app server as the value has changed
             }
