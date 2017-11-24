@@ -41,9 +41,15 @@ var app = {
         console.log('calling push init');
         var push = PushNotification.init({
             "android": {
-                "senderID": "381947611538"
+                "senderID": "381947611538",
+                "sound": true,
+                "vibrate": true,
+                "icon": "phonegap",
+                "iconColor": "blue",
             },
-            "browser": {},
+            "browser": {
+                "applicationServerKey": "AAAAWO3aCZI:APA91bF1B7asS9fmr1QGfpIEYgyWsrx3fuLU2-e19847r89OI6U7HqZFSeGdoqPpUY1jgI0BPAHxkztH9VWQHLAm2TLcD9cqvD4xuKKmXucBT6H2fbBO8rFGTh7irkVZxqGjQxZ4_nGH"
+            },
             "ios": {
                 "sound": true,
                 "vibration": true,
@@ -61,15 +67,19 @@ var app = {
                 // Save new registration ID
                  
                 localStorage.setItem('registrationId', data.registrationId);
+
                 // Post registrationId to your app server as the value has changed
             }
 
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
+            var receivedid = document.getElementById('regid');
 
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
+            receivedid.setAttribute('value', data.registrationId);
+            
         });
 
         push.on('error', function(e) {
